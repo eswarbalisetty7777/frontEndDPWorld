@@ -1,5 +1,16 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.11.
+Pre-requisites 
+Node.js: Angular requires a version of Node.js that is active LTS or the latest version. For Angular 15, it is recommended to use Node.js version 14.20.x, 16.13.x, or 18.10.x.
+
+npm: Node.js comes with npm (Node Package Manager) installed. Make sure your npm version is up to date. You can update npm using the following command:
+
+Install Angular 
+npm install -g @angular/cli@15
+
+Install Typescript 
+npm install -g typescript
+
 
 ## Development server
 

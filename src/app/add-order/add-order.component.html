@@ -1,0 +1,100 @@
+<div class="order-detail-container">
+    <h2>Add New Order</h2>
+    <form [formGroup]="orderForm" (ngSubmit)="saveOrder()">
+      <!-- Customer Information -->
+      <h3>Customer Information</h3>
+      <div class="customer-info" formGroupName="customer">
+        <div class="form-group">
+          <label for="customerCode">Customer Code:</label>
+          <select id="customerCode" formControlName="customer_code" (change)="onCustomerCodeChange($event)" class="form-control">
+            <option value="">Select Customer Code</option>
+            <option *ngFor="let customer of customerObjects" [value]="customer.customer_code">
+              {{ customer.customer_code }}
+            </option>
+          </select>
+          <div *ngIf="orderForm.get('customer.customer_code')?.hasError('required') && orderForm.get('customer.customer_code')?.touched" class="text-danger">
+            Customer Code is required
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input id="firstName" formControlName="first_name" class="form-control" [disabled]="true" style="background-color: #e9ecef; border-color: #ced4da;" />
+        </div>
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input id="lastName" formControlName="last_name" class="form-control" [disabled]="true" style="background-color: #e9ecef; border-color: #ced4da;" />
+        </div>
+      </div>
+  
+      <div class="customer-info" formGroupName="customer">
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input id="phone" formControlName="phone" class="form-control" [disabled]="true" style="background-color: #e9ecef; border-color: #ced4da;" />
+        </div>
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" formControlName="email" class="form-control" [disabled]="true" style="background-color: #e9ecef; border-color: #ced4da;" />
+        </div>
+      </div>
+  
+      <!-- Address Information -->
+      <h3>Address Information</h3>
+      <div class="address-info" formGroupName="address">
+        <div class="form-group">
+          <label for="addressSelect">Address:</label>
+          <select id="addressSelect" formControlName="address_type" (change)="onAddressChange($event)" class="form-control">
+            <option value="">Select Address</option>
+            <option *ngFor="let address of customerAddresses" [value]="address.address_id">
+              {{ address.displayAddress }}
+            </option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Add Item Button -->
+      <div class="text-left mb-4">
+        <button type="button" class="btn btn-primary btn-custom" (click)="addOrderLine()">Add Item</button>
+      </div>
+  
+      <!-- Add New Item Section -->
+      <div *ngIf="isAdding" class="add-item-form" formGroupName="newItem">
+        <h4>Add New Item</h4>
+        <div class="row align-items-end">
+          <div class="col-md-4">
+            <div class="form-group">
+              <label for="newItemSelect">Item:</label>
+              <select formControlName="item_id" id="newItemSelect" class="form-control">
+                <option *ngFor="let item of items" [value]="item.item_id">{{ item.item_description }}</option>
+              </select>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="form-group">
+              <label for="newItemQuantity">Quantity:</label>
+              <input formControlName="quantity" type="number" id="newItemQuantity" min="1" class="form-control" />
+            </div>
+          </div>
+          <div class="col-md-5 d-flex justify-content-between">
+            <button type="button" class="btn btn-success save-btn" (click)="saveNewItem()">Save</button>
+            <button type="button" class="btn btn-secondary cancel-btn" (click)="cancelNewItem()">Cancel</button>
+          </div>
+        </div>
+      </div>
+  
+      <!-- Order Lines Section -->
+      <h3>Order Lines</h3>
+      <ag-grid-angular
+        style="width: 100%; height: 400px;"
+        class="ag-theme-alpine"
+        [rowData]="rowData"
+        [columnDefs]="columnDefs"
+        [defaultColDef]="defaultColDef"
+        (gridReady)="onGridReady($event)">
+      </ag-grid-angular>
+
+      <!-- Save Button -->
+      <div class="text-center mb-4">
+        <button type="submit" class="btn btn-success btn-custom">Save Order</button>
+      </div>
+    </form>
+  </div>

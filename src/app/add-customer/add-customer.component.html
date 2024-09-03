@@ -1,0 +1,73 @@
+<div class="customer-detail-container">
+    <h2>Add New Customer</h2>
+    <form [formGroup]="customerForm" (ngSubmit)="saveCustomer()">
+      <!-- Customer Information -->
+      <h3>Customer Information</h3>
+      <div class="customer-info">
+        <div class="form-group">
+          <label for="customerCode">Customer Code:</label>
+          <input id="customerCode" formControlName="customer_code" name="customerCode" class="form-control" />
+          <div *ngIf="customerForm.get('customer_code')?.invalid && customerForm.get('customer_code')?.touched" class="text-danger">
+            Customer Code is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="firstName">First Name:</label>
+          <input id="firstName" formControlName="first_name" name="firstName" class="form-control" />
+          <div *ngIf="customerForm.get('first_name')?.invalid && customerForm.get('first_name')?.touched" class="text-danger">
+            First Name is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="lastName">Last Name:</label>
+          <input id="lastName" formControlName="last_name" name="lastName" class="form-control" />
+          <div *ngIf="customerForm.get('last_name')?.invalid && customerForm.get('last_name')?.touched" class="text-danger">
+            Last Name is required
+          </div>
+        </div>
+      </div>
+  
+      <div class="customer-info">
+        <div class="form-group">
+          <label for="phone">Phone:</label>
+          <input id="phone" formControlName="phone" name="phone" class="form-control" />
+          <div *ngIf="customerForm.get('phone')?.invalid && customerForm.get('phone')?.touched" class="text-danger">
+            A valid phone number is required
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input id="email" formControlName="email" name="email" class="form-control" />
+          <div *ngIf="customerForm.get('email')?.invalid && customerForm.get('email')?.touched" class="text-danger">
+            A valid email address is required
+          </div>
+        </div>
+      </div>
+  
+      <!-- Address Information -->
+      <h3>Address Information</h3>
+      <div class="address-info">
+        <div class="form-group">
+          <label for="addressLine1">Address Line 1:</label>
+          <input id="addressLine1" formControlName="address_line1" name="addressLine1" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="addressLine2">Address Line 2:</label>
+          <input id="addressLine2" formControlName="address_line2" name="addressLine2" class="form-control" />
+        </div>
+        <div class="form-group">
+          <label for="countryCode">Country Code:</label>
+          <input id="countryCode" formControlName="country_code" name="countryCode" class="form-control" />
+        </div>
+      </div>
+  
+      <!-- Save Button -->
+      <div class="text-center mb-4">
+        <button type="submit" class="btn btn-success btn-custom">Save Customer</button>
+      </div>
+    </form>
+  </div>
+  

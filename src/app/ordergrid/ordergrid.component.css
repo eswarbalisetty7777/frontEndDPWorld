@@ -1,0 +1,109 @@
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+
+.order-container {
+    margin-bottom: 20px;
+    margin: 10px;
+    border-radius: 5px;
+  }
+
+  .button-container {
+    display: flex;
+    gap: 20px;
+}
+
+.btn-red {
+    background-color: #d9534f; 
+    color: white;
+    /* text-transform: uppercase; */
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 5px;
+
+    color: white;              /* White text color */
+    border: none;
+    padding: 15px 25px;        /* Consistent padding */
+    /* font-size: 16px;            */
+    border-radius: 25px;        /* Rounded corners */
+}
+
+.btn-red:hover {
+    background-color: #c9302c; 
+}
+
+
+  .btn-red {
+    background-color: #d9534f;
+    color: white; 
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.btn-red:hover {
+    background-color: #c9302c;
+}
+
+  
+  .button-container {
+    margin-bottom: 10px;
+    text-align: left; 
+  }
+  
+  .btn-custom {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .btn-custom:hover {
+    background-color: #0056b3; 
+  }
+  
+
+
+.ag-theme-alpine {
+    width: 100%;
+    height: auto;
+    min-height: 500px; 
+    overflow-x: auto;
+    overflow-y: hidden; 
+}
+
+.ag-theme-alpine .ag-root-wrapper {
+    min-width: 1000px; 
+}
+
+.ag-theme-alpine .ag-header {
+    white-space: nowrap; 
+}
+
+.ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-cell {
+    white-space: nowrap; 
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    .ag-theme-alpine {
+        min-height: 400px;
+    }
+
+    .ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-cell {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .ag-theme-alpine {
+        min-height: 300px; 
+    }
+
+    .ag-theme-alpine .ag-header-cell, .ag-theme-alpine .ag-cell {
+        font-size: 0.8em; 
+    }
+}

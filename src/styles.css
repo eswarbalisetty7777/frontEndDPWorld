@@ -1,0 +1,37 @@
+@import 'ag-grid-community/styles/ag-grid.css';
+@import 'ag-grid-community/styles/ag-theme-alpine.css';
+@import 'ag-grid-community/styles/ag-theme-balham.css';
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+html, body { height: 100%; }
+body { margin: 0; }
+.custom-snackbar {
+  background-color: #4CAF50 !important; /* Bright green background */
+  color: #ffffff !important; /* White text color */
+  z-index: 10000; /* Ensure it appears above other elements */
+}
+
+.cdk-overlay-container {
+  position: fixed;
+  top: 20px; /* Position it 20px from the top */
+  right: 20px; /* Position it 20px from the right */
+  left: auto; /* Ensure it does not stretch to the left */
+  bottom: auto; /* Ensure it does not stretch to the bottom */
+  z-index: 10000; /* High z-index to overlay on all elements */
+}
+
+.mat-snack-bar-container {
+  background-color: #4CAF50 !important; /* Ensure the background color is green */
+  color: #ffffff !important; /* White text color */
+  border-radius: 5px; /* Optional: Add rounded corners */
+  padding: 16px; /* Optional: Add padding */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Optional: Add a shadow for depth */
+  justify-content: flex-start; /* Align text to the left */
+}
+
+

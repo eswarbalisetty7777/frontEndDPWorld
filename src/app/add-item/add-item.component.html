@@ -1,0 +1,29 @@
+<div class="item-detail-container">
+    <h2>Add New Item</h2>
+    <form [formGroup]="itemForm" (ngSubmit)="saveItem()">
+      <h3>Item Information</h3>
+      <div class="item-info">
+        <div class="form-group">
+          <label for="itemNum">Item Number:</label>
+          <input id="itemNum" formControlName="item_num" name="itemNum" class="form-control" />
+          <div *ngIf="itemForm.get('item_num')?.invalid && itemForm.get('item_num')?.touched" class="text-danger">
+            Item Number is required.
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <label for="itemDescription">Item Description:</label>
+          <input id="itemDescription" formControlName="item_description" name="itemDescription" class="form-control" />
+          <div *ngIf="itemForm.get('item_description')?.invalid && itemForm.get('item_description')?.touched" class="text-danger">
+            Item Description is required.
+          </div>
+        </div>
+      </div>
+  
+      <!-- Save Button -->
+      <div class="text-center mb-4">
+        <button type="submit" class="btn btn-success btn-custom">Save Item</button>
+      </div>
+    </form>
+  </div>
+  

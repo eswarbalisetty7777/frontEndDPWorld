@@ -1,0 +1,103 @@
+<div class="order-detail-container">
+  <h2>Order Details</h2>
+  <form>
+    <!-- Customer Information component-->
+    <h3>Customer Information</h3>
+    <div class="customer-info">
+      <div class="form-group">
+        <label for="customerCode">Customer Code:</label>
+        <input id="customerCode" [(ngModel)]="order.customer.customer_code" name="customerCode" class="form-control " readonly
+        style="background-color: #e9ecef; border-color: #ced4da; color: #6c757d;"
+        />
+      </div>
+      
+      <div class="form-group">
+        <label for="firstName">First Name:</label>
+        <input id="firstName" [(ngModel)]="order.customer.first_name" name="firstName" class="form-control" />
+        <div *ngIf="errors.first_name" class="text-danger">{{ errors.first_name }}</div>
+      </div>
+      <div class="form-group">
+        <label for="lastName">Last Name:</label>
+        <input id="lastName" [(ngModel)]="order.customer.last_name" name="lastName" class="form-control" />
+        <div *ngIf="errors.last_name" class="text-danger">{{ errors.last_name }}</div>
+      </div>
+    </div>
+
+    <div class="customer-info">
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input id="phone" [(ngModel)]="order.customer.phone" name="phone" class="form-control" />
+        <div *ngIf="errors.phone" class="text-danger">{{ errors.phone }}</div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input id="email" [(ngModel)]="order.customer.email" name="email" class="form-control" />
+        <div *ngIf="errors.email" class="text-danger">{{ errors.email }}</div>
+      </div>
+    </div>
+
+    <!-- Address Information -->
+    <h3>Address Information</h3>
+    <div class="address-info">
+      <div class="form-group">
+        <label for="addressLine1">Address Line 1:</label>
+        <input id="addressLine1" [(ngModel)]="order.address.address_line1" name="addressLine1" class="form-control"  />
+      </div>
+      <div class="form-group">
+        <label for="addressLine2">Address Line 2:</label>
+        <input id="addressLine2" [(ngModel)]="order.address.address_line2" name="addressLine2" class="form-control"  />
+      </div>
+      <div class="form-group">
+        <label for="countryCode">Country Code:</label>
+        <input id="countryCode" [(ngModel)]="order.address.country_code" name="countryCode" class="form-control"  />
+      </div>
+    </div>
+
+    <!-- Save Item Button -->
+    <div class="text-center mb-4">
+      <button type="button" class="btn btn-success btn-custom" (click)="saveOrderDetails()">Save</button>
+    </div>
+
+    <!-- Add Item Button -->
+    <div class="text-left mb-4">
+      <button type="button" class="btn btn-primary btn-custom" (click)="startAddingItem()">Add Item</button>
+    </div>
+
+    <!-- Add New Item Section -->
+    <div *ngIf="isAdding" class="add-item-form">
+      <h4>Add New Item</h4>
+      <div class="row align-items-end">
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="newItemSelect">Item:</label>
+            <select [(ngModel)]="selectedItem" id="newItemSelect" name="newItemSelect" class="form-control">
+              <option *ngFor="let item of items" [ngValue]="item">{{ item.item_description }}</option>
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="newItemQuantity">Quantity:</label>
+            <input type="number" [(ngModel)]="newItemQuantity" name="newItemQuantity" id="newItemQuantity" min="1" class="form-control" />
+          </div>
+        </div>
+        <div class="col-md-5 d-flex justify-content-between">
+          <button type="button" class="btn save-btn" (click)="saveNewItem()">Save</button>
+          <button type="button" class="btn cancel-btn" (click)="cancelNewItem()">Cancel</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- ag-Grid for Order Lines -->
+    <h3>Items</h3>
+    <ag-grid-angular
+      style="width: 100%; height: 400px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      [frameworkComponents]="frameworkComponents"
+      (gridReady)="onGridReady($event)">
+    </ag-grid-angular>
+  </form>
+</div>

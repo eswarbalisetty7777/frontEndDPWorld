@@ -1,0 +1,18 @@
+<div class="order-container">
+  <div class="button-container">
+    <button type="button" class="btn btn-red" (click)="addOrder()">Add Order</button>
+    <button type="button" class="btn btn-red" (click)="fileInput.click()">Upload XML</button>
+    <input type="file" #fileInput (change)="uploadXML($event)" style="display: none;" />
+</div>
+
+  <div>
+    <ag-grid-angular
+      style="width: 100%; height: 500px;"
+      class="ag-theme-alpine"
+      [rowData]="rowData"
+      [columnDefs]="columnDefs"
+      [defaultColDef]="defaultColDef"
+      (rowClicked)="onRowClicked($event)"
+    ></ag-grid-angular>
+  </div>
+</div>

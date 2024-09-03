@@ -1,0 +1,65 @@
+  .content-wrapper {
+    flex: 1; /* This ensures the content wrapper takes up all available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* This centers the form vertically if there's extra space */
+    margin-bottom: 20px; /* Add margin at the bottom to create space between the form and the footer */
+  }
+  
+  .item-detail-container {
+    max-width: 800px;
+    height: 40vh;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  .btn-success.btn-custom, .save-btn {
+    background-color: #28a745; /* Green background for save button */
+    color: white;              /* White text color */
+    border: none;
+    padding: 15px 25px;        /* Consistent padding */
+    font-size: 16px;           /* Font size */
+    border-radius: 25px;        /* Rounded corners */
+  }
+  
+  .item-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .item-info .form-group {
+    flex: 0 0 48%;
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ced4da;
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .text-center {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .mb-4 {
+    margin-bottom: 24px;
+  }
+  
+  .save-btn {
+    background-color: #0275d8;
+  }
+  
+  .save-btn:hover {
+    background-color: #025aa5;
+  }
+  

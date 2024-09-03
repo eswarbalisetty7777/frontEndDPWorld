@@ -1,0 +1,59 @@
+.text-danger {
+    color: #dc3545; /* Red color for validation errors */
+    font-size: 14px; /* Font size for error messages */
+    margin-top: 5px;
+  }
+  
+  .btn-success.btn-custom, .save-btn {
+    background-color: #28a745; /* Green background for save button */
+    color: white;              /* White text color */
+    border: none;
+    padding: 15px 25px;        /* Consistent padding */
+    font-size: 16px;           /* Font size */
+    border-radius: 25px;        /* Rounded corners */
+  }
+  
+  .btn-success.btn-custom:hover, .save-btn:hover {
+    background-color: #218838; /* Darker green on hover */
+  }
+  
+  .customer-detail-container, .order-detail-container {
+    max-width: 1000px;         /* Consistent container width */
+    margin: 50px auto;
+    padding: 40px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-info, .address-info {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  
+  .customer-info .form-group, .address-info .form-group {
+    flex: 0 0 32%;             /* Align with Save Order form */
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 10px;             /* Padding for consistent input size */
+    font-size: 14px;           /* Font size */
+    border-radius: 5px;        /* Rounded corners */
+    border: 1px solid #ced4da; /* Border color */
+    box-sizing: border-box;
+    background-color: #fff;
+  }
+  
+  .text-center {
+    text-align: center;
+    margin-top: 20px;
+  }
+  
+  .mb-4 {
+    margin-bottom: 24px;
+  }
+  
